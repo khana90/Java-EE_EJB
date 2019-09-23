@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Update Train Line"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Line Id:" for="lineid" />
+                    <h:inputText readonly="true" id="lineid" value="#{lineController.l.lineid}" 
+                                 title="Id" required="true" requiredMessage="The Line Id field is required."/>
+                    
+                    <h:outputLabel value="Line Name:" for="linename" />
+                    <h:inputText id="linename" value="#{lineController.l.linename}" title="Name" />
+                    <h:outputLabel value="Startpoint:" for="startpoint" />
+                    <h:inputText id="startpoint" value="#{lineController.l.startpoint}" title="Startpoint" />
+                    <h:outputLabel value="Endpoint:" for="endpoint" />
+                    <h:inputText id="endpoint" value="#{lineController.l.endpoint}" title="Endpoint" />
+                    <h:commandButton value="Save" action ="#{lineController.editLine()}"></h:commandButton>           
+                </h:panelGrid>
+                <br></br>
+                <h:link value ="Cancel" outcome ="index"></h:link>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

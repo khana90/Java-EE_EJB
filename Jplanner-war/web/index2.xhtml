@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Station on crossing</title>
+    </h:head>
+    <h1>Station on crossing</h1>
+   
+    <h:body>
+           <form action="/Jplanner-war/faces/index.xhtml">
+           <td> <input type="submit"  value ="Other Services"></input> </td>
+    </form>
+          
+        <h:form> <br></br>
+            <h:dataTable var="x" value="#{crossingStController.findAll()}" border="2" cellpadding="12" cellspacing="12" >
+                <h:column>
+                    <f:facet name="header">Crossing Id</f:facet>
+                    <h:outputText value ="#{x.idx}"></h:outputText>
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">Line Id</f:facet>
+                    <h:outputText value ="#{x.lineid}"></h:outputText>
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">Station Id</f:facet>
+                    <h:outputText value ="#{x.stationid}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Options</f:facet>
+                <h:commandLink value="Delete" action="#{crossingStController.delete(x)}" onclick="return confirm('Are you sure?')"></h:commandLink>
+            <td><h:commandLink value ="Edit" action="#{crossingStController.editStx(x)}"></h:commandLink> </td>
+                </h:column>
+                
+            </h:dataTable>
+            <br></br>      
+             <h:link value ="Add New X Station" outcome="addStx"></h:link> 
+                <br></br>
+             
+                    
+        </h:form>
+    </h:body>
+</html>
+
+ 

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>station on crossing</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Create Station on crossing"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="X Id:" for="idx" />
+                    <h:inputText id="idx" value="#{crossingStController.x.idx}" 
+                      title="Id" required="true" requiredMessage="The Id field is required."/>
+                    
+                    <h:outputLabel value="Line ID:" for="lineid" />
+                    <h:inputText id="lineid" value="#{crossingStController.x.lineid}" title="lineid" />
+                    
+                    <h:outputLabel value="Station Id:" for="stationid" />
+                    <h:inputText id="stationid" value="#{crossingStController.x.stationid}" title="Railwaycom" />
+                    <p></p>
+                    <h:commandButton value ="Save" action ="#{crossingStController.addStx()}"></h:commandButton>
+                    <p></p>
+                    <h:link value="Cancel" outcome="index2"></h:link>
+           
+                </h:panelGrid>     
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

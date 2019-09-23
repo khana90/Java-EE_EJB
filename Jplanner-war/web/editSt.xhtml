@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Edit station"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Id:" for="stid" />
+                    <h:inputText readonly="true" id="stid" value="#{stationController.st.stid}" 
+                                 title="Id" required="true" requiredMessage="The Id field is required."/>
+                    
+                    <h:outputLabel value="Stname:" for="stname" />
+                    <h:inputText id="stname" value="#{stationController.st.stname}" title="Stname" />
+                    
+                    <h:outputLabel value="Status" for="status" />
+                    <h:inputText id="status" value="#{stationController.st.status}" title="Status" />
+                    <h:commandButton value ="Save" action="#{stationController.editSt()}"></h:commandButton>
+                </h:panelGrid>
+                <br></br>
+                <h:link value="Cancel" outcome ="index"></h:link>  
+                
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+            <center> <h1>Journey planner</h1> </center>
+            <h2>List of Lines</h2>
+    </h:head>
+    <br></br>
+    <h:body>
+        <h:form>
+          <h:commandButton value ="Home Page" action="Admin.jsp" ></h:commandButton> 
+                <p></p>
+         <h:dataTable var="l" value="#{linelistController.findAll()}" border="2" cellpadding="12" cellspacing="8" >
+               <f:facet name ="header">Lines</f:facet>
+                <h:column>
+                    <f:facet name="header">Line Id </f:facet>
+                    <h:outputText value ="#{l.lineid}"></h:outputText>
+                </h:column>
+                  <h:column>
+                    <f:facet name="header">Line Name </f:facet>
+                    <h:outputText value ="#{l.linename}"></h:outputText>
+                </h:column>
+                  <h:column>
+                    <f:facet name="header">Start Point </f:facet>
+                    <h:outputText value ="#{l.startpoint}"></h:outputText>
+                </h:column>
+                  <h:column>
+                    <f:facet name="header">End point </f:facet>
+                    <h:outputText value ="#{l.endpoint}"></h:outputText>
+                </h:column>       
+            </h:dataTable> 
+   
+        </h:form>
+    </h:body>
+</html>
+

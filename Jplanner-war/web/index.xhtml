@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>journey planner</title>
+    </h:head>
+    <center> <h1>Journey planner</h1> </center>
+    <h:body>
+        
+        <h:form>
+    <h:commandButton   action="Admin.jsp" class="btn btn-primary" style="margin-top: 10px;margin-left: 10px;" value="Home Page"></h:commandButton>
+    <h:commandButton   action="index2.xhtml" class="btn btn-primary" style="margin-top: 10px;margin-left: 10px;" value="Station on Junction"></h:commandButton> 
+    <h:commandButton   action="lineList.xhtml" class="btn btn-primary" style="margin-top: 10px;margin-left: 10px;" value="List of Lines"></h:commandButton>
+
+           <p></p>
+           <h:dataTable var="l" value="#{lineController.findAll()}" border="2" cellpadding="12" cellspacing="8" >
+               <f:facet name ="header">Line</f:facet>
+                <h:column>
+                    <f:facet name="header">Line Id </f:facet>
+                    <h:outputText value ="#{l.lineid}"></h:outputText>
+                </h:column>
+                  <h:column>
+                    <f:facet name="header">Line Name </f:facet>
+                    <h:outputText value ="#{l.linename}"></h:outputText>
+                </h:column>
+                  <h:column>
+                    <f:facet name="header">Start Point </f:facet>
+                    <h:outputText value ="#{l.startpoint}"></h:outputText>
+                </h:column>
+                  <h:column>
+                    <f:facet name="header">End point </f:facet>
+                    <h:outputText value ="#{l.endpoint}"></h:outputText>
+                </h:column>
+                <h:column>
+                <f:facet name="header"> Options</f:facet> 
+                <h:commandLink value ="Delete" action="#{lineController.delete(l)}" 
+                       onclick ="return confirm('Are you sure?')"></h:commandLink>  
+                <td> <h:commandLink value ="Edit" action ="#{lineController.editLine(l)}"></h:commandLink></td>
+               </h:column>   
+            </h:dataTable> 
+             <br></br>      
+                
+<h:commandButton   action="addLine.xhtml" class="btn btn-primary" 
+                   style="margin-top: 10px;margin-left: 10px;" value="Add New Line"></h:commandButton>  
+                   <p></p> 
+    <h:dataTable var="st" value="#{stationController.findAll()}" border="2" cellpadding="12" cellspacing="8">
+         <f:facet name="header">Station</f:facet>
+       
+        <h:column>
+            <f:facet name="header">Station Id</f:facet>
+            <h:outputText value ="#{st.stid}" ></h:outputText>
+        </h:column>
+          <h:column>
+            <f:facet name="header">Station Name</f:facet>
+            <h:outputText value ="#{st.stname}"></h:outputText>
+        </h:column>
+          <h:column>
+            <f:facet name="header">Station Status</f:facet>
+            <h:outputText value ="#{st.status}"></h:outputText>
+        </h:column>
+          <h:column>
+            <f:facet name="header">Options</f:facet>
+            <h:commandLink value="Delete" action="#{stationController.delete(st)}" 
+            onclick="return confirm('Are you sure?')"></h:commandLink>
+       <td><h:commandLink value ="Edit" action="#{stationController.editSt(st)}"></h:commandLink></td>
+        </h:column>   
+    </h:dataTable>    
+    <br></br>
+    
+   <h:commandButton   action="addSt.xhtml" class="btn btn-primary" style="margin-top: 10px;margin-left: 10px;" value="Add New Station"></h:commandButton> 
+        </h:form>
+        
+    </h:body>
+</html>
+
